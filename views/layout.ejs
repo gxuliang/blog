@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title><%= title %> - Microblog</title>
+	<link rel='stylesheet' href='/stylesheets/bootstrap.css' /> <style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+		} </style>
+		<link href="stylesheets/bootstrap-theme.css" rel="stylesheet"> </head>
+		<body>
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="/">Microblog</a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="/">首页</a></li> 
+							<% if (!user) { %>
+							<li><a href="/login">登入</a></li>
+							<li><a href="/reg">注册</a></li>
+							<% } else { %>
+							<li><a href="/logout">登出</a></li>
+							<% } %>
+							<li class="dropdown">
+							</ul>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+
+
+			<div class="container theme-showcase" role="main">
+				<% if (success) { %>
+				<div class="alert alert-success">
+					<%= success %>
+				</div>
+				<% } %>
+				<% if (error) { %>
+				<div class="alert alert-danger">
+					<%= error %>
+				</div> <% } %>
+				<%- body %>
+				<footer>
+					<p><a href="http://www.google.com/" target="_blank">gxuliang</a> 2016</p> </footer>
+				</div>
+			</body>
+			<script src="/javascripts/jquery-1.12.3.js"></script>
+			<script src="/javascripts/bootstrap.js"></script>
+			</html>
